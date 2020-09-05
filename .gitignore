@@ -16,3 +16,4 @@ local_settings.py
 get-pip.py
 /*/secret_key.py
 *.code-workspace
+secret_key.py
