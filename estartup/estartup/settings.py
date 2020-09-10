@@ -14,8 +14,7 @@ import os
 import posixpath
 import psycopg2
 from django.contrib.messages import constants as messages
-from blogitproject.secret_key import EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS
-
+from  estartup.secret_key import EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT, EMAIL_USE_TLS
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -41,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'pages',
+    'tutors',
+    'courses',
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +83,9 @@ WSGI_APPLICATION = 'estartup.wsgi.application'
 
 DATABASES = {"default": {
         "ENGINE":"django.db.backends.postgresql",
-        "NAME":"blogitdb",
-        "USER":"blogituser",
-        "PASSWORD":"blogituser",
+        "NAME":"estartup",
+        "USER":"postgres",
+        "PASSWORD":"3891144",
         "HOST":"localhost",
         "PORT":"5433",
         }}
@@ -142,7 +146,7 @@ DATETIME_FORMAT = 'd.m.Y HH:MM:SS'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'blogitproject/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'estartup/static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')

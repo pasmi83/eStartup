@@ -1,0 +1,39 @@
+{%load static%}
+{%if courses%}
+  <!--==========================
+    Courses Section
+  ============================-->
+<section id="blog" class="padd-section wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+
+        <h2>Наши курсы</h2>
+        <p class="separator">Узнавай новое.</p>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        
+        {% for course in courses %}
+        <div class="col-md-6 col-lg-4">
+          <div class="block-blog text-left">
+            <a href="#"><img src="{{course.images.all.0.image.url}}" alt="img"></a>
+            <div class="content-blog">
+              <h4><a href="#">{{course.title}}</a></h4>
+              <p>{{course.description}}</p>
+              <!--<span>15, July 2018</span>
+              <a class="pull-right readmore" href="#">read more</a>-->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+  {%endif%}
+  <!--End section-->

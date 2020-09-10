@@ -1,0 +1,44 @@
+{% load static %}
+ <!--==========================
+    Team Section
+  ============================-->
+  <section id="team" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+
+        <h2>Наши преподаватели</h2>
+        <p class="separator">Они знают своё дело</p>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+{% for tutor  in tutors %}
+        <div class="col-md-6 col-md-4 col-lg-3">
+          <div class="team-block bottom">
+            <img src="{{tutor.image.url}}" class="img-responsive" alt="img">
+            <div class="team-content">
+              <!--<ul class="list-unstyled">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              </ul>-->
+              
+              <h4>{{tutor.first_name}} {{tutor.last_name}}</h4>
+              <p>{{tutor.biography}}</p>
+            </div>
+          </div>
+        </div>
+{% endfor %}
+       
+
+      </div>
+    </div>
+  </section>
+
+
+  <!--==========================
+    Testimonials Section
+  ============================-->
