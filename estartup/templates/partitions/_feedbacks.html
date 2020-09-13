@@ -1,0 +1,64 @@
+{% load static %}
+<!--==========================
+    Testimonials Section
+  ============================-->
+{% if feedbacks %}
+
+  <section id="testimonials" class="padd-section text-center wow fadeInUp">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+          <div class="testimonials-content">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="top-top">
+                            <h2>{{feedbacks.all.0.title}}</h2>
+                            <p>{{feedbacks.all.0.description}}</p>
+                            <h4>{{feedbacks.all.0.first_name}} {{feedbacks.all.0.last_name}}<span>{{feedbacks.all.0.created_at|date:"d M Y"}}</span></h4>
+                    </div>
+                    </div>
+
+                {% for feedback in feedbacks.all|slice:"1:" %}
+                <div class="carousel-item">
+                  <div class="top-top">          
+                        <h2>{{feedback.title}}</h2>
+                        <p>{{feedback.description}}</p>
+                        <h4>{{feedback.first_name}} {{feedback.last_name}}<span>{{feedback.created_at|date:"d M Y"}}</span></h4>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+{% if  feedbacks.all|length > 1%}
+              <div class="btm-btm">
+
+                <ul class="list-unstyled carousel-indicators">
+                    
+                    
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    
+                    {% for i in feedbacks%}
+                        <li data-target="#carousel-example-generic" data-slide-to="{{forloop.counter}}"></li>
+                  <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+                    {% endfor %}
+                    
+                </ul>
+
+              </div>
+{% endif %}
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {% endif %}

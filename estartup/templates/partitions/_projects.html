@@ -1,0 +1,36 @@
+<!--==========================
+    Screenshots Section
+  ============================-->
+  {%load thumbnail%}
+  <section id="screenshots" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title">
+        <h2>Наши проекты</h2>
+        <p class="separator">Мы не сидим сложа руки.</p>
+      </div>
+    </div>
+
+    <div class="container ">
+      <div class="owl-carousel owl-theme  ">
+{%for project in projects%}
+{%with someimage=project.images.all|random%}
+{%thumbnail someimage.image 225x510 crop as thumb225x510%}
+        <div class="owl-item col-12" style="background:url('{{thumb225x510.url}}' ),radial-gradient(ellipse, rgba(255,255,255,1) 60%, rgba(0,0,0,0) 80%) ;height:510; background-repeat: no-repeat; ">
+{% endwith %}        
+            <div class="col-12">
+            
+                <div class="row mt-2">
+                    <h4 class = "p-1" style="background: rgb(255,255,255);
+                    background: radial-gradient(ellipse, rgba(255,255,255,1) 60%, rgba(0,0,0,0) 80%);">
+                    {{project.title}}</h4>
+                    
+                </div>
+            </div>
+        </div>
+{%endfor%}
+
+      </div>
+    </div>
+
+  </section>
