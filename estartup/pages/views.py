@@ -5,6 +5,9 @@ from courses.models import Course
 from courses.models import CourseAdvantage
 from projects.models import Project
 from feedbacks.models import Feedback
+from announcements.models import Announcement
+from leads.models import Lead
+from leads.forms import LeadForm
 
 
 class ContextListMixin(ContextMixin):
@@ -13,6 +16,9 @@ class ContextListMixin(ContextMixin):
     "advantages":CourseAdvantage.objects.all(),
     "projects":Project.objects.all(),
     "feedbacks":Feedback.objects.all(),
+    "announcements":Announcement.objects.all(),
+    "form":LeadForm
+
     }
 
 #class CoursesListMixin(ContextMixin):

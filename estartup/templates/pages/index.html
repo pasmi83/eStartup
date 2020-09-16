@@ -1,10 +1,13 @@
 {%extends 'base.html'%}
 {%load static%}
 {%block content%}
-{%include 'partitions/_hero.html'%}
-{%include 'partitions/_tutors.html'%}
-{%include 'partitions/_courses.html'%}
-{%include 'partitions/_projects.html'%}
-{%include 'partitions/_feedbacks.html'%}
 
-{% endblock content %}
+{%include 'partitions/_hero.html'%}<!-- заголовок -->
+{%include 'partitions/_announcements.html'%} <!--объявления-->
+{%include 'partitions/_courses.html'%}<!-- список курсов -->
+{%include 'partitions/_projects.html'%}<!-- проекты -->
+{%include 'partitions/_tutors.html'%}<!-- преподаватели -->
+{%include 'partitions/_feedbacks.html'%}<!-- отзывы -->
+{%include 'partitions/_lead.html'%}<!-- форма контакта -->
+
+{%endblock content%}

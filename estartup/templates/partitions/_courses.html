@@ -3,7 +3,7 @@
   <!--==========================
     Courses Section
   ============================-->
-<section id="blog" class="wow fadeInUp">
+<section id="courses" class="padd-section wow fadeInUp">
 
     <div class="container">
       <div class="section-title text-center">
@@ -21,13 +21,25 @@
         {% for course in courses %}
         <div class="col-md-6 col-lg-4">
           <div class="block-blog text-left">
-            <a href="#"><img src="{{course.images.all.0.image.url}}" alt="img"></a>
-            <div class="content-blog">
-              <h4><a href="#">{{course.title}}</a></h4>
-              <p>{{course.description}}</p>
-              <!--<span>15, July 2018</span>
-              <a class="pull-right readmore" href="#">read more</a>-->
-            </div>
+                      
+            <a href="#lessonList{{forloop.counter0}}" aria-controls="lessonList{{forloop.counter0}}" data-toggle="collapse"><img  src="{{course.images.all.0.image.url}}" alt="img"></a>
+
+              <div class="content-blog">
+                <h4><a href="#lessonList{{forloop.counter0}}" aria-controls="lessonList{{forloop.counter0}}" data-toggle="collapse">{{course.title}}</a></h4>
+                <p>{{course.description}}</p>
+                <div class = "collapse col-12" id="lessonList{{forloop.counter0}}">
+                {% if course.lesson_list %}
+                  <h4 class="fas fa-h4">Список уроков</h4>
+                    <ol>
+                      {% for lesson in course.lesson_list %}
+                        <li>{{lesson}}</li>
+                      {% endfor %}
+                    </ol>
+                {% endif %}
+                </div>
+                <!--<span>15, July 2018</span>
+                <a class="pull-right readmore" href="#">read more</a>-->
+              </div>
           </div>
         </div>
         {% endfor %}

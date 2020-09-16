@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 class CourseImage(models.Model):
     class Meta:
@@ -34,6 +34,11 @@ class Course(models.Model):
 
     images = models.ManyToManyField(to = CourseImage,verbose_name="Иллюстрации", 
     help_text="Пусть лучше будут картинки")
+
+    lesson_list =ArrayField(
+        models.CharField(max_length=140,null=True, verbose_name="Тема урока")
+        ,null=True,blank = True,verbose_name="Список уроков",default=list
+        ) 
 
     def __str__(self):
         return self.title

@@ -45,12 +45,15 @@ INSTALLED_APPS = [
     'taggit',
     'easy_thumbnails',
     'widget_tweaks',
+    'phonenumber_field',
 
     'pages',
     'tutors',
     'courses',
     'projects',
-    'feedbacks'
+    'feedbacks',
+    'announcements',
+    'leads',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +162,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
 TAGGIT_CASE_INSENSITIVE = True
+
+PHONENUMBER_DEFAULT_REGION = 'RU'
