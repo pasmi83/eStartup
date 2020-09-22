@@ -164,3 +164,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 TAGGIT_CASE_INSENSITIVE = True
 
 PHONENUMBER_DEFAULT_REGION = 'RU'
+
+MESSAGE_TAGS = {
+messages.INFO: 'success',
+messages.ERROR: 'danger'
+}

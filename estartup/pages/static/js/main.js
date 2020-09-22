@@ -131,6 +131,8 @@ jQuery(document).ready(function( $ ) {
     }
   });
 
-// custom code
+// close alert
+setTimeout(function(){ $(".alert").alert('close'); }, 7000);
+
 
 });

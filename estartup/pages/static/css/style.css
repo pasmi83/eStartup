@@ -1355,7 +1355,7 @@ body.mobile-nav-active #mobile-nav-toggle i {
   line-height: 1;
 }
 
-#contact .form button[type="submit"] {
+#contact .form input[type="submit"] {
   background: #71c55d;
   border: 0;
   padding: 10px 24px;
@@ -1363,7 +1363,7 @@ body.mobile-nav-active #mobile-nav-toggle i {
   transition: 0.4s;
 }
 
-#contact .form button[type="submit"]:hover {
+#contact .form input[type="submit"]:hover {
   background: #92d283;
 }
 
