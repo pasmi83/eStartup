@@ -1,8 +1,10 @@
 from django.views.generic.base import TemplateView,ContextMixin
 from django.views.generic.edit import FormMixin
+from django.shortcuts import redirect
 
 from django.contrib import messages
-import json
+from django.urls import reverse
+
 
 from tutors.models import Tutor
 from courses.models import Course
@@ -12,6 +14,8 @@ from feedbacks.models import Feedback
 from announcements.models import Announcement
 from leads.models import Lead
 from leads.forms import LeadForm
+from setup.models import Setup
+
 from leads.utils import get_error_message_from_form
 
 
@@ -26,6 +30,7 @@ class ContextListMixin(ContextMixin):
     "projects":Project.objects.all(),
     "feedbacks":Feedback.objects.all(),
     "announcements":Announcement.objects.all(),
+    "setup":Setup.objects.all(),
 
     }
 
@@ -44,15 +49,14 @@ class CreateLeadForm(FormMixin):
             messages.error(self.request, "Сообщение не передано")
         else:
             messages.success(self.request, "Сообщение передано, ждите ответа")
-
-
-
+        
         return super().form_valid(form,*args)
     
     def form_invalid(self,form,*args):
         for error in form.errors.items():
             get_error_message_from_form(self, error)
-        return super().form_invalid(form,*args)
+        
+        return redirect(reverse('pages:index')+'#contact')
     
 
 class PostDataMixin:
@@ -64,10 +68,6 @@ class PostDataMixin:
             return self.form_invalid(form)
 
 
-
-
-#class CoursesListMixin(ContextMixin):
-#   extra_context = {"courses":Course.objects.all}
     
 class Index(TemplateView,CreateLeadForm,ContextListMixin,PostDataMixin):
     template_name = 'pages/index.html'
@@ -78,11 +78,6 @@ class Index(TemplateView,CreateLeadForm,ContextListMixin,PostDataMixin):
     Handle POST requests: instantiate a form instance with the passed
     POST variables and then check if it's valid.
     """
-    #form = self.get_form()
-    #if form.is_valid():
-    #    return self.form_valid(form)
-    #else:
-    #    return self.form_invalid(form)
 
 
 

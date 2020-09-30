@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'feedbacks',
     'announcements',
     'leads',
+    'setup',
 ]
 
 MIDDLEWARE = [
@@ -169,3 +170,4 @@ MESSAGE_TAGS = {
 messages.INFO: 'success',
 messages.ERROR: 'danger'
 }
+

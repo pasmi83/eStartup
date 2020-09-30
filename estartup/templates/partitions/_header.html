@@ -1,9 +1,12 @@
+{%load thumbnail%}
 {% load static %}
+{%thumbnail setup.all.0.image_logo 60x100 as image_logo%}
 <header id="header" class="header header-hide">
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto"><span>e</span>Startup</a></h1>
+        <h1><a href="#body" class="scrollto"><img src="{{image_logo.url}}" alt="eStartup">
+        <span>e</span>Startup</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
